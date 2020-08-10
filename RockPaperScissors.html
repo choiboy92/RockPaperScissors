@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+    html, body {
+        /*border: 10px solid black;*/
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+        outline: 0;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    h1 {
+      font-family: Futura, Trebuchet MS, Arial, sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: black;
+      line-height: 26.4px;
+      text-align: center;
+    }
+    .icon {
+      position: absolute;
+      margin-top: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .container {
+      position: relative;
+      display: grid;
+    }
+    svg {
+      flex:0 1 300px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      overflow: visible;
+    }
+    #headerdiv {
+      grid-column: 1;
+      grid-row: 1;
+      top:0;
+      display: block;
+      width: 100%;
+    }
+    #button_div {
+      grid-column: 1;
+      grid-row: 2;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      background-color: blue;
+      color: white;
+      border-radius: 4px;
+      margin: 10px;
+      padding: 10px 10px 10px 10px;
+      font-family: 'Avenir';
+      font-weight: 700;
+      font-size: 16px;
+      width: 100px;
+      height: 50px;
+      display: inline;
+      float: none;
+    }
+    #timerdiv {
+      display: flex;
+      grid-column: 1;
+      grid-row: 3;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Avenir';
+      font-weight: 700;
+      font-size: 30px;
+    }
+
+    </style>
+</head>
+<body>
+  <div class="relative">
+<div id="headerdiv">
+<h1> Rock Paper Scissors Animations </h1></div>
+<div id="button_div"><button type="button" class="choose_button" id="rock_button">ROCK</button>
+<button type="button" class="choose_button" id="paper_button">PAPER</button>
+<button type="button" class="choose_button" id="scissors_button">SCISSORS</button>
+<button type="button" class="choose_button" id="end_button">End</button></div>
+<div id="timerdiv"></div></div>
+
+<div class="icon"><svg id="rock"height="200" viewBox="0 0 600 600" width="200" xmlns="http://www.w3.org/2000/svg">
+
+  <path  d="m476.877 188.692c-.814-3.93-3.169-7.371-6.539-9.551l-273.133-176.733c-6.888-4.457-16.078-2.553-20.63 4.273l-139.245 208.866c-3.509 5.264-3.338 12.165.428 17.248l102.894 138.907-30.415 121.659c-1.12 4.481-.113 9.228 2.729 12.869 2.843 3.641 7.204 5.769 11.823 5.769h257.067c8.284 0 15-6.716 15-15v-88.379l1.419-.946c29.292-19.528 46.781-52.203 46.781-87.407v-75.792l29.614-44.42c2.226-3.34 3.021-7.432 2.207-11.363zm-101.082-34.992-55.639 83.458-44.485-19.771 59.836-89.755zm-65.477-42.368-29.999 44.998-49.275-24.637 33.374-50.06zm-116.989-75.699 45.9 29.7-35.226 52.838-49.274-24.637zm221.727 284.634c0 25.15-12.494 48.494-33.421 62.446-4.846 3.23-8.12 5.42-8.12 5.42-4.161 2.784-6.659 7.46-6.659 12.467v81.4h-222.856l27.474-109.895c1.088-4.352.171-8.962-2.499-12.566l-100.833-136.125 69.816-104.724 125.591 62.795-18.255 27.383h-88.373c-8.284 0-15 6.716-15 15s6.716 15 15 15h54.997l60.12 120.241c3.705 7.41 12.715 10.414 20.125 6.708 7.41-3.705 10.413-12.715 6.708-20.124l-53.411-106.825h4.68l141.69 62.973c6.678 2.969 14.521.692 18.573-5.386l4.653-6.98zm-22.599-50.977-44.485-19.771 53.014-79.521 40.288 26.069z"/></svg>
+  <svg id="paper" height="200" viewBox="0 0 29 29" width="200" xmlns="http://www.w3.org/2000/svg"><path d="m8.56 24.011c-.276 0-.5-.224-.5-.5v-.87c0-.309-.094-.606-.271-.86l-1.007-1.437c-.587-.84-1.084-1.723-1.477-2.623-.495-1.133-1.563-3.273-3.167-4.878-.055-.055-.096-.122-.121-.195-.022-.065-.201-.654.214-1.23.444-.615 1.373-.928 2.76-.928 1.296 0 2.32.836 3 1.629v-9.13c0-1.103.897-2 2-2 .412 0 .794.125 1.112.339.274-.779 1.017-1.339 1.888-1.339s1.614.56 1.888 1.339c.318-.214.701-.339 1.112-.339 1.103 0 2 .897 2 2v2.269c.294-.171.636-.269 1-.269 1.152 0 2.049.897 2.049 2v7l-.091 1.942c-.101 2.136-.916 4.21-2.296 5.841-.22.26-.342.592-.342.933v.805c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-.805c0-.577.206-1.138.578-1.579 1.239-1.463 1.971-3.324 2.061-5.241l.09-1.919v-6.977c0-.552-.449-1-1-1-.6 0-1.049.448-1.049 1v6c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-10c0-.552-.449-1-1-1s-1 .448-1 1v10c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-11c0-.552-.449-1-1-1s-1 .448-1 1v11c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-10c0-.552-.449-1-1-1s-1 .448-1 1v10.75c0 .231-.16.433-.385.486s-.458-.056-.562-.264c-.013-.024-1.258-2.473-3.053-2.473-1.404 0-1.825.351-1.94.501-.074.096-.091.193-.092.262 1.572 1.616 2.639 3.64 3.262 5.068.367.841.831 1.665 1.38 2.45l1.007 1.437c.295.423.452.919.452 1.434v.87c0 .277-.224.501-.5.501z"/></svg>
+  <svg id="scissors" height="200" viewBox="0 0 600 600" width="200" xmlns="http://www.w3.org/2000/svg">
+    <path d="m375.115 1.299c-20.239-5.422-41.118 6.631-46.541 26.87l-30.91 115.356-30.908-115.356c-5.423-20.239-26.3-32.292-46.541-26.87-9.804 2.627-17.999 8.915-23.074 17.705-5.075 8.791-6.423 19.031-3.796 28.835l24.11 89.981c-3.694-2.663-7.874-4.667-12.405-5.881-9.804-2.626-20.044-1.279-28.835 3.796s-15.078 13.27-17.705 23.074c-.146.544-.275 1.089-.396 1.635-9.808-3.086-20.827-2.219-30.412 3.315-12.059 6.963-18.86 19.583-18.99 32.592-.001.104.001 90.914.001 90.914 0 41.969 18.358 80.888 48.581 107.61v107.123c0 5.523 4.477 10 10 10s10-4.477 10-10v-92.343c8.487 5.204 17.584 9.591 27.23 12.988 1.099.387 2.22.571 3.322.571 4.124 0 7.984-2.57 9.432-6.681 1.834-5.209-.901-10.919-6.11-12.754-49.319-17.371-82.455-64.194-82.455-116.514v-45.755l23.02 39.873c7.03 12.177 19.829 18.992 32.973 18.992 6.442 0 12.968-1.637 18.937-5.083 9.599-5.542 15.864-14.67 18.087-24.724 3.705 1.167 7.58 1.784 11.489 1.784 6.442 0 12.967-1.637 18.936-5.083 6.279-3.625 11.272-8.847 14.575-15.106 6.132 4.326 13.464 7.053 21.394 7.569-9.065 10.302-14.58 23.8-14.58 38.569 0 5.523 4.477 10 10 10s10-4.477 10-10c0-21.211 17.257-38.468 38.468-38.468h7.032c5.523 0 10-4.477 10-10s-4.477-10-10-10h-48.164c-12.131 0-22-9.869-22-22s9.869-22 22-22h58.758c14.371 0 26.062 11.691 26.062 26.062v65.371c0 52.316-33.133 99.139-82.448 116.512-5.209 1.835-7.944 7.545-6.109 12.754 1.448 4.11 5.308 6.68 9.432 6.68 1.102 0 2.224-.184 3.323-.571 9.643-3.397 18.738-7.783 27.222-12.985v92.343c0 5.523 4.477 10 10 10s10-4.477 10-10v-107.125c30.222-26.722 48.581-65.641 48.581-107.61v-65.371c0-19.335-11.98-35.914-28.903-42.734l35.187-131.32c5.423-20.239-6.63-41.117-26.87-46.54zm-173.084 265.742c-1.245 4.644-4.223 8.526-8.387 10.93-8.595 4.962-19.626 2.007-24.589-6.588l-37.94-65.714c-2.404-4.164-3.042-9.015-1.798-13.659 1.245-4.644 4.223-8.525 8.387-10.93 2.828-1.632 5.918-2.408 8.97-2.408 6.226 0 12.289 3.229 15.619 8.996l37.94 65.714c2.403 4.164 3.042 9.015 1.798 13.659zm48.512-28.024c-1.244 4.644-4.223 8.525-8.387 10.93-8.595 4.962-19.625 2.007-24.588-6.588l-37.94-65.714c-2.404-4.164-3.043-9.015-1.798-13.659s4.223-8.525 8.387-10.93c2.828-1.632 5.918-2.408 8.97-2.408 6.225 0 12.289 3.229 15.619 8.996l37.94 65.714c2.403 4.164 3.042 9.015 1.797 13.659zm4.407-42.912-2.185-3.785-40.1-149.658c-2.569-9.587 3.141-19.477 12.728-22.045 9.588-2.568 19.476 3.141 22.045 12.728l38.267 142.816c-13.031 1.611-24.235 9.201-30.755 19.944zm127.717-153.442-35.682 133.168h-37.27l38.179-142.486c1.245-4.644 4.223-8.526 8.387-10.93 4.165-2.405 9.015-3.042 13.659-1.798 4.644 1.245 8.526 4.223 10.93 8.387 2.403 4.164 3.041 9.015 1.797 13.659z"/></svg>
+</div>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  function show_icon(name, callback) {
+    anime({
+      targets: name,
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      duration: 2000,
+      //delay: function(el, i) { return i * 250 },
+      autoplay: true,
+      //direction: 'alternate',
+      //loop: true,
+      begin: function(anim) {
+        //console.log("animation has begun");
+
+        if (name =="#paper path") {
+          document.querySelector(name).setAttribute("stroke-width", "0.5");
+        }
+        else {
+          document.querySelector(name).setAttribute("stroke-width", "10");
+        }
+        document.querySelector(name).setAttribute("opacity", "1");
+        document.querySelector(name).setAttribute("stroke", "black");
+        document.querySelector(name).setAttribute("fill", "none");
+      },
+      complete: function(anim) {
+        callback();
+      }
+    });
+  };
+  //0 == Rock
+  //1 == Paper
+  //2 == Scissors
+  function set_timer(time, callback) {
+    var time_left = time;
+    var timer = setInterval(function() {
+      if (time_left == 0) {
+        clearInterval(timer);
+        callback();
+      }
+      $('#timerdiv').text(time_left);
+      time_left--;
+    }, time*400);
+
+  }
+
+  //var array = ["#rock path","#paper path","#scissors path"];
+  window.onload = () => {
+    var array = ["#rock path","#paper path","#scissors path"];
+    var choice_array = ["rock_button", "paper_button", "scissors_button"];
+    var win_count = 0;
+    var draw_count = 0;
+    var lose_count = 0;
+    var time = 3; // in seconds
+
+
+    var repeat = setInterval(function() {
+      console.log('START');
+      // Reset button input
+      var choice = 'null';
+      $('button').click(function() {
+        choice = this.id;
+      });
+      //TIMER
+
+      document.querySelector("#rock path").setAttribute("opacity", "0.1");
+      document.querySelector("#paper path").setAttribute("opacity", "0.1");
+      document.querySelector("#scissors path").setAttribute("opacity", "0.1");
+      const randindex = Math.floor(Math.random() * array.length)
+      const randomElement = array[randindex];
+      show_icon(randomElement, function() {
+        set_timer(time, function() {setTimeout(function() {
+          if (choice == choice_array[randindex]) {
+            console.log('draw');
+            draw_count++;
+          }
+          else if (choice == choice_array[randindex+1] || choice == choice_array[randindex-2]) {
+            console.log('win');
+            console.log(choice);
+            win_count++;
+          }
+          else {
+            console.log('lose');
+            lose_count++;
+          }
+        }, 500)
+        console.log('END');
+        });
+      });
+
+    }, 10000);
+    $('#end_button').click(function() {
+        clearInterval(repeat);
+        alert('wins = '+win_count+ ', draws = '+ draw_count+ ', losses = '+ lose_count);
+    });
+
+  };
+  /*canvas = document.createElement('canvas')
+  body.appendChild(canvas);
+  ctx = canvas.getContext("2d");*/
+
+
+</script>
+</html>
